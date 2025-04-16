@@ -5,12 +5,8 @@ A custom Yandex Maps field for MoonShine admin panel that allows users to intera
 ## Features
 
 - Interactive Yandex Maps integration
-- Customizable map dimensions (width/height)
 - Placemark management (add/delete)
-- Customizable button labels
 - Configurable default map center and zoom level
-- Customizable marker colors
-- Responsive design
 
 ## Installation
 
