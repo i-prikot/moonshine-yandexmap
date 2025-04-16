@@ -1,13 +1,13 @@
 {
-    "name": "i-prikot/yandexmap",
+    "name": "i-prikot/moonshine-yandexmap",
     "description": "YandexMap for MoonShine",
     "keywords": ["moonshine", "yandex", "map"],
     "type": "library",
     "homepage": "https://moonshine-laravel.com",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/i-prikot/yandexmap/issues",
-        "source": "https://github.com/i-prikot/yandexmap"
+        "issues": "https://github.com/i-prikot/moonshine-yandexmap/issues",
+        "source": "https://github.com/i-prikot/moonshine-yandexmap"
     },
     "authors": [
         {

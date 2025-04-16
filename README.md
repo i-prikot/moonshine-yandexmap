@@ -12,7 +12,7 @@ A custom Yandex Maps field for MoonShine admin panel that allows users to intera
 
 1. Install the package via Composer:
    ```bash
-   composer require iprikot/yandexmap
+   composer require iprikot/moonshine-yandexmap
    ```
 
 2. Publish the configuration file:
