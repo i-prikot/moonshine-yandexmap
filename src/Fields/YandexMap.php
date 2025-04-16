@@ -2,15 +2,22 @@
 
 namespace Iprikot\YandexMap\Fields;
 
+use Closure;
 use MoonShine\AssetManager\Js;
 use MoonShine\UI\Fields\Field;
 use MoonShine\AssetManager\Css;
+use Illuminate\Contracts\Support\Renderable;
+use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
 
 class YandexMap extends Field
 {
     const VERSION = '2.1';
 
     const MAX_MAP_ZOOM = 21;
+
+    const DEFAULT_CONTAINER_MAP_WIDTH = '100%';
+
+    const DEFAULT_CONTAINER_MAP_HEIGHT = '400px';
 
     protected string $view = 'yandexmap::fields.yandexmap';
 
@@ -90,12 +97,12 @@ class YandexMap extends Field
 
     protected function getWidth(): string
     {
-        return $this->width ?? '100%';
+        return $this->width ?? self::DEFAULT_CONTAINER_MAP_WIDTH;
     }
 
     protected function getHeight(): string
     {
-        return $this->height ?? '400px';
+        return $this->height ?? self::DEFAULT_CONTAINER_MAP_HEIGHT;
     }
 
     public function deletePlacemarkButtonLabel(string $label): self
@@ -150,6 +157,47 @@ class YandexMap extends Field
     {
         $this->defaultMapZoom = max(0, min(self::MAX_MAP_ZOOM, $zoom));
         return $this;
+    }
+
+    protected function resolveOnApply(): ?Closure
+    {
+        return function ($item) {
+            $value = $this->getRequestValue();
+            
+            if (is_string($value)) {
+                $value = json_decode($value, true, 512, JSON_THROW_ON_ERROR);
+            }
+           
+            data_set(
+                $item,
+                $this->getColumn(),
+                $value,
+            );
+        };
+    }
+
+    protected function resolvePreview(): Renderable|string
+    {
+        $value = $this->toFormattedValue();
+        return '';
+    }
+
+    protected function resolveRawValue(): mixed
+    {
+        if (\is_array($this->rawValue)) {
+            return json_encode($this->rawValue, JSON_THROW_ON_ERROR);
+        }
+
+        return (string) $this->rawValue;
+    }
+
+    protected function reformatFilledValue(mixed $data): mixed
+    {
+        if (\is_string($data)) {
+            $data = json_decode($data, true, 512, JSON_THROW_ON_ERROR);
+        }
+
+        return $data;
     }
 
     /**
