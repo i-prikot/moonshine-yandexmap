@@ -1,0 +1,40 @@
+{
+    "name": "i-prikot/yandexmap",
+    "description": "YandexMap for MoonShine",
+    "keywords": ["moonshine", "yandex", "map"],
+    "type": "library",
+    "homepage": "https://moonshine-laravel.com",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/i-prikot/yandexmap/issues",
+        "source": "https://github.com/i-prikot/yandexmap"
+    },
+    "authors": [
+        {
+            "name": "Ivan Prikot",
+            "email": "i.prikot@ya.ru"
+        }
+    ],
+    "require": {
+        "php": "^8.2|^8.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Iprikot\\YandexMap\\": "src/"
+        }
+    },
+    "conflict": {
+        "moonshine/moonshine": "<3.0.0"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Iprikot\\YandexMap\\Providers\\YandexMapServiceProvider"
+            ]
+        }
+    }
+}
