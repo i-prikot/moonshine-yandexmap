@@ -1,0 +1,4 @@
+.moonshine-yandexmap {
+    border-radius: var(--radius-md, .375rem);
+    overflow: hidden;
+}
