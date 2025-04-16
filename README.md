@@ -1,6 +1,3 @@
-Here's a `README.md` file for your YandexMap field code:
-
-```markdown
 # YandexMap Field for MoonShine
 
 A custom Yandex Maps field for MoonShine admin panel that allows users to interact with Yandex Maps, place markers, and save coordinates.
@@ -88,4 +85,3 @@ The field stores data as JSON with the following structure:
 ## License
 
 This package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-```
